@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trabalho WEB Services - Rafael e Thiago</title>
+	<meta charset="utf-8">
+	<!-- <link rel="stylesheet" type="text/css" href="/static/css/style.css"> -->
+	<style type="text/css">
+		*{
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			font-family: arial, verdana;
+			margin: 10px auto;
+			width: 1000px;
+		}
+
+		header{
+			background: #ccc;
+			font-size: 50px;
+			font-weight: bold;
+			padding: 20px;
+			text-align: center;
+		}
+		#titulo{
+			float: left; 
+			margin: 30px 0px;
+		}
+
+		footer{
+			background: #777;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+			padding: 20px;
+			text-align: center;
+			clear: both;
+		}
+
+		#menu{
+			background: #ddd;
+			padding: 10px 20px;
+		}
+
+		#menu ul{
+			padding-left: 38px; 
+			list-style-type: none;
+		}
+
+		#menu ul li{
+			border: 1px solid #000;
+			border-radius: 30px;
+			cursor: pointer;
+			float: left;
+			font-size: 15px;
+			margin: 0 10px 0 0;
+			padding: 8px 12px;
+		}
+
+		#menu ul li:hover, .ativa{
+			background: #fff;
+			color: #000;
+		}
+
+		.normal{
+			background: #000;
+			color: #fff;
+		}
+
+		.clearfix:after{
+			clear: both;
+			content: ' ';
+			display: block;
+			font-size: 0;
+			height: 0;
+			visibility: hidden;
+		}
+
+		#content{
+			background: #eee;
+			min-height: 300px;
+			padding: 15px;
+		}
+
+		#limpar{
+			float: right;
+			border: 1px solid #000;
+			border-radius: 30px;
+			cursor: pointer;
+			font-size: 13px;
+			margin: 0 10px 0 0;
+			padding: 8px 12px;
+			margin-top: 8px;
+		}
+
+		#limpar:hover{
+			background: #fff;
+			color: #000;
+		}
+
+		#recomecar{
+			height: 40px;
+			background-color: #eee;
+			padding: 10px;
+		}
+
+
+		/* css do uso de memória */
+
+		.cabecalho{
+			border-bottom: 1px solid #000;
+			font-size: 28px;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
+		.arc path{
+		  	stroke: #fff;
+
+		}
+		.vermelho{
+			color: #f75;
+			font-weight: bold;
+		}
+
+		ul{
+			list-style-type: none;
+			margin: auto;
+		}
+		.azul{
+			color: #57f;
+			font-weight: bold;
+		}
+		#pizza{
+			float: left;
+			margin: 30px;
+		}
+
+		#grafico_pizza{
+			width: 300px;
+		}
+
+		#explicacao{
+			float: left;
+		}
+
+		#grafico_linha{
+			background: #fff;
+			border: 1px solid #000;
+			border-radius: 15px;
+			float: left;
+			padding: 20px 0;
+			position: relative;
+		}
+
+		#explicacao_y{
+			font-size: 12px;
+			left: 15px;
+			position: absolute;
+			top: 10px;
+		}
+
+		#explicacao_x{
+			font-size: 12px;
+			bottom: 5px;
+			position: absolute;
+			right: 15px;
+		}
+
+
+		/*     */
+		.float_left{
+			float: left;
+		}
+
+		.negrito{
+			font-weight: bold;
+		}
+
+		.margin_right_15{
+			margin: 0 15px 0 0;
+		}
+
+	</style>
+</head>
+
+<body>
+	<header>
+		<div id="titulo">MSW - Monitor de Sistemas Web</div>
+		<!-- <img src="grey.png" height="100px"> -->
+		<img src="data:image/png;base64,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"/>
+
+	</header>
+
+	<nav id="menu" class="clearfix">
+		<div id="navegacao">
+			<ul>
+				<li id="uso_cpu" class="normal">Uso de CPU</li>
+				<li id="total_mem" class="normal">Total de memória</li>
+				<li id="uso_mem" class="normal">Memória utilizada</li>
+				<li id="num_proc" class="normal">Número de processos</li>
+				<li id="user_log" class="normal">Usuários logados</li>
+				<li id="t_logada" class="normal">Tempo ligada</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="content" class="clearfix"></div>
+	<div id="recomecar">
+		<p id="limpar" class="normal">Recomeçar</p>
+	</div>
+
+	<footer>Desenvolvido por Rafael Leandro e Thiago Loschi</footer>
+
+	<script type="text/javascript" src="/static/js/d3.v3.min.js"></script>
+	<script type="text/javascript" src="/static/js/funcoes.js"></script>
+	<script type="text/javascript" src="/static/js/pagina.js"></script>
+</body>
+</html>

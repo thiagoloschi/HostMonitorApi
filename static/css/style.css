@@ -1,0 +1,147 @@
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: arial, verdana;
+	margin: 10px auto;
+	width: 1000px;
+}
+
+header{
+	background: #ccc;
+	font-size: 34px;
+	font-weight: bold;
+	padding: 30px;
+	text-align: center;
+}
+
+footer{
+	background: #777;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 20px;
+	text-align: center;
+}
+
+#menu{
+	background: #ddd;
+	padding: 10px 20px;
+}
+
+#menu ul{
+	list-style-type: none;
+}
+
+#menu ul li{
+	border: 1px solid #000;
+	border-radius: 30px;
+	cursor: pointer;
+	float: left;
+	font-size: 15px;
+	margin: 0 10px 0 0;
+	padding: 8px 12px;
+}
+
+#menu ul li:hover, .ativa{
+	background: #fff;
+	color: #000;
+}
+
+.normal{
+	background: #000;
+	color: #fff;
+}
+
+.clearfix:after{
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+#content{
+	background: #eee;
+	min-height: 300px;
+	padding: 15px;
+}
+
+/* css do uso de memória */
+
+.cabecalho{
+	border-bottom: 1px solid #000;
+	font-size: 28px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.arc path{
+  	stroke: #fff;
+
+}
+.vermelho{
+	color: #f75;
+	font-weight: bold;
+}
+
+ul{
+	list-style-type: none;
+}
+.azul{
+	color: #57f;
+	font-weight: bold;
+}
+#pizza{
+	float: left;
+	margin: 30px;
+}
+
+#grafico_pizza{
+	width: 300px;
+}
+
+#explicacao{
+	float: left;
+}
+
+#grafico_linha{
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 15px;
+	float: left;
+	padding: 20px 0;
+	position: relative;
+}
+
+#explicacao_y{
+	font-size: 12px;
+	left: 15px;
+	position: absolute;
+	top: 10px;
+}
+
+#explicacao_x{
+	font-size: 12px;
+	bottom: 5px;
+	position: absolute;
+	right: 15px;
+}
+
+
+/*     */
+.float_left{
+	float: left;
+}
+
+.negrito{
+	font-weight: bold;
+}
+
+.margin_right_15{
+	margin: 0 15px 0 0;
+}
